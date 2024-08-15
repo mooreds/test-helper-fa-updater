@@ -37,7 +37,7 @@ jobs:
     steps:
       # get the latest released version number from the check script
       - env:
-        LATEST_RELEASED_VERSION=${{needs.check_theme_history.outputs.latestreleasedversion}}
+        LATEST_RELEASED_VERSION: ${{needs.check_theme_history.outputs.latestreleasedversion}}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
       - name: Update theme
