@@ -26,7 +26,5 @@ git commit -m "$latest_released_version themes" .
 git tag $latest_released_version
 git tag
 
-# push that up
-
-# TODO
+# push that up happens in GH workflow so easier to handle GH tokens
 

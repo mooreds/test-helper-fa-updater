@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# pull down theme history
-git clone https://github.com/FusionAuth/fusionauth-theme-history.git fusionauth-theme-history
+if [ ! -d fusionauth-theme-history ]; then
+  # pull down theme history
+  git clone https://github.com/FusionAuth/fusionauth-theme-history.git fusionauth-theme-history
+  git pull origin --tags
+fi
 
-git pull origin --tags
 # pull down theme helper
 git clone https://github.com/FusionAuth/fusionauth-theme-helper.git fusionauth-theme-helper
 
