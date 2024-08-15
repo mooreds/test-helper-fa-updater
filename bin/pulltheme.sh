@@ -2,7 +2,7 @@
 
 # pull down theme helper
 cd ..
-git clone git@github.com:FusionAuth/fusionauth-theme-helper.git fusionauth-theme-helper
+git clone https://github.com/FusionAuth/fusionauth-theme-helper.git fusionauth-theme-helper
 
 # create .env for theme helper
 cd fusionauth-theme-helper
