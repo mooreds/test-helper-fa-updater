@@ -22,6 +22,7 @@ cd ../fusionauth-theme-history
 
 git status
 
+git add .
 git commit -m "$latest_released_version themes" .
 git tag $latest_released_version
 git tag
