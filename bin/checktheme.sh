@@ -25,4 +25,7 @@ if [[ "$latest_released_version" == "$latest_theme_version" ]]; then
   echo "versions the same"
   echo "keepgoing=false" >> "$GITHUB_OUTPUT"
   exit 0
+else
+  echo "keepgoing=true" >> "$GITHUB_OUTPUT"
 fi
+
