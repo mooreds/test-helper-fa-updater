@@ -58,8 +58,9 @@ jobs:
           git config user.email github-actions@github.com
 
           echo "tagging"
-          git tag test-dan
-          git push https://$GITHUB_ACTOR:${{ secrets.PAT_FOR_COMMITS }}@github.com/fusionauth/fusionauth-theme-history main --tags
+          git tag test-dan2
+       
+          git push --tags https://$GITHUB_ACTOR:${{ secrets.PAT_FOR_COMMITS }}@github.com/FusionAuth/fusionauth-theme-history main 
         shell: bash
 
 #
