@@ -19,28 +19,6 @@ latest_theme_version=`git tag|tail -1`
 # if they do, exit
 if [ $latest_released_version == $latest_theme_version ]; then
   echo "versions the same"
+  echo "keepgoing=false" >> "$GITHUB_OUTPUT"
   exit 0
 fi
-
-# if they do not then
-
-# pull down theme helper
-cd ..
-git clone git@github.com:FusionAuth/fusionauth-theme-helper.git fusionauth-theme-helper
-
-# stand up fusionauth instance
-# TODO
-
-# create .env for theme helper
-cd fusionauth-theme-helper
-
-cat << EOF > .env
-API_KEY=bf69486b-4733-4470-a592-f1bfce7af580
-THEME_ID=75a068fd-e94b-451a-9aeb-3ddb9a3b5987
-FUSIONAUTH_URL=http://localhost:9011
-TMP_DIR=tmp # a temporary directory; this will be created
-EOF
-
-# download theme
-./download.sh
-
