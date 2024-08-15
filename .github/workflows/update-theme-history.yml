@@ -45,7 +45,7 @@ jobs:
           echo "ran update_theme_history"
           echo $LATEST_RELEASED_VERSION
           pwd
-          tree -d
+          tree -d ..
         shell: bash
 
       - name: Start FusionAuth
