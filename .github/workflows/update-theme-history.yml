@@ -1,0 +1,55 @@
+name: update_theme_history
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow once a day
+  schedule:
+    - cron: '39 18 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  check_theme_history:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    outputs:
+      keepgoing: ${{ steps.checkthemeversion.outputs.keepgoing }}
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Check if theme is up to date
+        id: checkthemeversion
+        run: |
+          scripts/checktheme.sh 1.47.1
+        shell: bash
+
+  update_theme_history:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    needs: check_theme_history
+    if: ${{ needs.check_theme_history.outputs.keepgoing != false }}
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Update theme
+        run: |
+          echo "ran update_theme_history"
+        shell: bash
+
+      #- name: Start FusionAuth
+        #uses: fusionauth/fusionauth-github-action@v1
+        #with:
+          #FUSIONAUTH_VERSION: "latest" # Optional: provide FusionAuth version number otherwise it defaults to latest
+#
+      #- name: Check APIs for completeness against client libs
+        #run: |
+          ## check out last released version of the client libs
+          #tagver=`curl --silent https://account.fusionauth.io/api/version -o - | jq 'last(.versions[-1])'|sed 's/"//g'`
+          #git clone --depth 1 --branch $tagver https://github.com/fusionauth/fusionauth-client-builder
+          #src/check-apis-against-client-json.rb -f $PWD/src/.checkapis.yaml -c $PWD/fusionauth-client-builder -v
+        ###shell: bash
