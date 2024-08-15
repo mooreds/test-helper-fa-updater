@@ -50,8 +50,8 @@ jobs:
         uses: fusionauth/fusionauth-github-action@v1
         with:
           FUSIONAUTH_VERSION: ${{needs.check_theme_history.outputs.latestreleasedversion}}
-          FUSIONAUTH_APP_KICKSTART_FILENAME: ks
-          FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH: ks.json
+          FUSIONAUTH_APP_KICKSTART_FILENAME: ks.json
+          FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH: ks
       - name: Check API key
         run: |
           sleep 15
