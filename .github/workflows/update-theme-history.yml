@@ -57,10 +57,6 @@ jobs:
           sleep 15
           curl -vv http://localhost:9011/api/status -H 'Authorization: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bdEXAMPLE' 
         shell: bash
-      - name: Install npm modules
-        run: |
-          cd fusionauth-theme-helper && npm install
-        shell: bash
 
       - name: Download theme
         run: |

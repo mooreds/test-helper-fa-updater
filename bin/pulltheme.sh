@@ -7,6 +7,8 @@ git clone https://github.com/FusionAuth/fusionauth-theme-helper.git fusionauth-t
 # create .env for theme helper
 cd fusionauth-theme-helper
 
+npm install
+
 # API key is set in ks/ks.json
 cat << EOF > .env
 API_KEY=4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bdEXAMPLE
