@@ -27,5 +27,6 @@ if [[ "$latest_released_version" == "$latest_theme_version" ]]; then
   exit 0
 else
   echo "keepgoing=true" >> "$GITHUB_OUTPUT"
+  echo "latestreleasedversion="$latest_released_version >> "$GITHUB_OUTPUT"
 fi
 
