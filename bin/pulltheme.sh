@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo `pwd`
+# pull down theme history
+git clone https://github.com/FusionAuth/fusionauth-theme-history.git fusionauth-theme-history
 
-echo `tree -d`
-
+git pull origin --tags
 # pull down theme helper
 git clone https://github.com/FusionAuth/fusionauth-theme-helper.git fusionauth-theme-helper
 

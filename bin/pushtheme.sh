@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo `pwd`
-echo `tree -d`
-
 # get theme from command line
 if [ "x$1" != "x" ]; then
   latest_released_version=$1
