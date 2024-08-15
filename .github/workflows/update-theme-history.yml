@@ -25,7 +25,7 @@ jobs:
       - name: Check if theme is up to date
         id: checkthemeversion
         run: |
-          bin/checktheme.sh 1.51.0
+          bin/checktheme.sh 1.51.1
         shell: bash
 
   update_theme_history:
