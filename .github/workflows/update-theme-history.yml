@@ -52,16 +52,18 @@ jobs:
           FUSIONAUTH_VERSION: ${{needs.check_theme_history.outputs.latestreleasedversion}}
           FUSIONAUTH_APP_KICKSTART_FILENAME: ks.json
           FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH: ks
-      - name: Check API key
+      - name: Wait for FusionAuth to be up
         run: |
           sleep 15
           curl -vv http://localhost:9011/api/status -H 'Authorization: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bdEXAMPLE' 
         shell: bash
-#
-      #- name: Check APIs for completeness against client libs
-        #run: |
-          ## check out last released version of the client libs
-          #tagver=`curl --silent https://account.fusionauth.io/api/version -o - | jq 'last(.versions[-1])'|sed 's/"//g'`
-          #git clone --depth 1 --branch $tagver https://github.com/fusionauth/fusionauth-client-builder
-          #src/check-apis-against-client-json.rb -f $PWD/src/.checkapis.yaml -c $PWD/fusionauth-client-builder -v
-        ###shell: bash
+      - name: Download theme
+        run: |
+          bin/pulltheme.sh
+        shell: bash
+
+      - name: Upload theme
+        run: |
+          bin/pushtheme.sh
+        shell: bash
+
