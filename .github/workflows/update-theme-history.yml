@@ -66,3 +66,10 @@ jobs:
           bin/pushtheme.sh $LATEST_RELEASED_VERSION
         shell: bash
 
+      - name: Try to tag the remote repo
+        run: |
+          cd fusionauth-theme-history
+          git tag test-dan
+          git push origin --tags
+        shell: bash
+
