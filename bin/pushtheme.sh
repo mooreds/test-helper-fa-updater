@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo `ls`
+
+echo `pwd`
+
 # get theme from command line
 if [ "x$1" != "x" ]; then
   latest_released_version=$1
