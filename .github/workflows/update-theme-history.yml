@@ -35,9 +35,10 @@ jobs:
     if: ${{ needs.check_theme_history.outputs.keepgoing != 'false' }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # get the latest released version number from the check script
+      - env:
+        LATEST_RELEASED_VERSION=${{needs.check_theme_history.outputs.latestreleasedversion}}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - env
-        LATEST_RELEASED_VERSION=needs.check_theme_history.outputs.latestreleasedversion
       - uses: actions/checkout@v4
       - name: Update theme
         run: |
