@@ -17,10 +17,14 @@ git pull origin --tags
 latest_theme_version=`git tag|tail -1`
 
 # see if they match
-# if they do, exit
+
+echo "latest released version"
 echo $latest_released_version
+
+echo "latest theme version"
 echo $latest_theme_version
 
+# if they do, exit
 if [[ "$latest_released_version" == "$latest_theme_version" ]]; then
   echo "versions the same"
   echo "keepgoing=false" >> "$GITHUB_OUTPUT"
