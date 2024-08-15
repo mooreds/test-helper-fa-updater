@@ -75,6 +75,6 @@ jobs:
         run: |
           bin/pulltheme.sh
           bin/pushtheme.sh $LATEST_RELEASED_VERSION
-          git push --tags https://$GITHUB_ACTOR:${{ secrets.PAT_FOR_COMMITS }}@github.com/FusionAuth/fusionauth-theme-history main 
+          # git push --tags https://$GITHUB_ACTOR:${{ secrets.PAT_FOR_COMMITS }}@github.com/FusionAuth/fusionauth-theme-history main 
         shell: bash
 
