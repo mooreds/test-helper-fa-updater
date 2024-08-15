@@ -49,7 +49,7 @@ jobs:
       - name: Start FusionAuth
         uses: fusionauth/fusionauth-github-action@v1
         with:
-          FUSIONAUTH_VERSION: "$LATEST_RELEASED_VERSION"
+          FUSIONAUTH_VERSION: ${{needs.check_theme_history.outputs.latestreleasedversion}}
 #
       #- name: Check APIs for completeness against client libs
         #run: |
