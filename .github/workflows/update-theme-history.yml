@@ -61,10 +61,6 @@ jobs:
       - name: Download theme
         run: |
           bin/pulltheme.sh
-        shell: bash
-
-      - name: Upload theme
-        run: |
           bin/pushtheme.sh $LATEST_RELEASED_VERSION
         shell: bash
 
