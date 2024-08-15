@@ -34,8 +34,9 @@ git clone git@github.com:FusionAuth/fusionauth-theme-helper.git fusionauth-theme
 # create .env for theme helper
 cd fusionauth-theme-helper
 
+# API key is set in ks/ks.json
 cat << EOF > .env
-API_KEY=bf69486b-4733-4470-a592-f1bfce7af580
+API_KEY=4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bdEXAMPLE
 THEME_ID=75a068fd-e94b-451a-9aeb-3ddb9a3b5987
 FUSIONAUTH_URL=http://localhost:9011
 TMP_DIR=tmp # a temporary directory; this will be created
