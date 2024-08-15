@@ -48,28 +48,36 @@ jobs:
           tree -d ..
         shell: bash
 
-      - name: Start FusionAuth
-        uses: fusionauth/fusionauth-github-action@v1
-        with:
-          FUSIONAUTH_VERSION: ${{needs.check_theme_history.outputs.latestreleasedversion}}
-          FUSIONAUTH_APP_KICKSTART_FILENAME: ks.json
-          FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH: ks
-      - name: Wait for FusionAuth to be up
+      - name: Pull down needed repos, set up git
         run: |
-          sleep 15
-          curl -vv http://localhost:9011/api/status -H 'Authorization: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bdEXAMPLE' 
-        shell: bash
-
-      - name: Download theme
-        run: |
-          bin/pulltheme.sh
-          bin/pushtheme.sh $LATEST_RELEASED_VERSION
-        shell: bash
-
-      - name: Try to tag the remote repo
-        run: |
+          git clone --depth 1 https://x-access-token@${{ secrets.PAT_FOR_COMMITS }}@github.com/fusionauth/fusionauth-theme-history fusionauth-theme-history
           cd fusionauth-theme-history
+          git pull --tags
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT_TOKEN }}@github.com/fusionauth/fusionauth-theme-history
+
+          echo $LATEST_RELEASED_VERSION
           git tag test-dan
           git push origin --tags
         shell: bash
 
+#
+#      - name: Start FusionAuth
+#        uses: fusionauth/fusionauth-github-action@v1
+#        with:
+#          FUSIONAUTH_VERSION: ${{needs.check_theme_history.outputs.latestreleasedversion}}
+#          FUSIONAUTH_APP_KICKSTART_FILENAME: ks.json
+#          FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH: ks
+#      - name: Wait for FusionAuth to be up
+#        run: |
+#          sleep 15
+#          curl -vv http://localhost:9011/api/status -H 'Authorization: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bdEXAMPLE' 
+#        shell: bash
+#
+#      - name: Download theme
+#        run: |
+#          bin/pulltheme.sh
+#          bin/pushtheme.sh $LATEST_RELEASED_VERSION
+#        shell: bash
+#
