@@ -8,6 +8,10 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+      version:
+        required: true
+        type: string
+        default: ""
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,7 +29,7 @@ jobs:
       - name: Check if theme is up to date
         id: checkthemeversion
         run: |
-          bin/checktheme.sh 1.45.2
+          bin/checktheme.sh ${{ inputs.version }}
         shell: bash
 
   update_theme_history:
