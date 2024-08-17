@@ -16,6 +16,7 @@ echo $latest_released_version
 cd fusionauth-theme-helper
 
 cp tmp/*.ftl ../fusionauth-theme-history/themes
+cp tmp/*.txt ../fusionauth-theme-history/themes
 
 # check it in
 cd ../fusionauth-theme-history
