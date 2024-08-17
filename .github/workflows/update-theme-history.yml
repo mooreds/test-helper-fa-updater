@@ -81,7 +81,6 @@ jobs:
           bin/pulltheme.sh
           bin/pushtheme.sh $LATEST_RELEASED_VERSION
           cd fusionauth-theme-history
-          ls -l themes
-          # git push --tags https://$GITHUB_ACTOR:${{ secrets.PAT_FOR_COMMITS }}@github.com/FusionAuth/fusionauth-theme-history main 
+          git push --tags https://$GITHUB_ACTOR:${{ secrets.PAT_FOR_COMMITS }}@github.com/FusionAuth/fusionauth-theme-history main 
         shell: bash
 
