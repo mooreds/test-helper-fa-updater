@@ -1,4 +1,6 @@
-This repo updates the fusionauth-theme-history repo. It exists only for that purpose.
+This repo updates the [fusionauth-theme-history](https://github.com/FusionAuth/fusionauth-theme-history) repo, allowing FusionAuth users to see changes in themes over time. It exists only for that purpose.
+
+Learn more about [FusionAuth themes](https://fusionauth.io/docs/customize/look-and-feel/).
 
 The reason not to put all these scripts in that fusionauth-theme-history repo is to keep that git history clean.
 
