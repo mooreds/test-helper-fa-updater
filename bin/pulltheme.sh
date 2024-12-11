@@ -12,6 +12,10 @@ git clone https://github.com/FusionAuth/fusionauth-theme-helper.git fusionauth-t
 # create .env for theme helper
 cd fusionauth-theme-helper
 
+echo -----
+cat download.sh
+echo -----
+
 cat<<EOF>download.sh
 . .env
 
