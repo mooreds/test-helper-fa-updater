@@ -15,6 +15,9 @@ cd fusionauth-theme-helper
 cat<<EOF>download.sh
 . .env
 
+echo THEME
+echo $THEME_ID
+
 echo npx fusionauth theme:download $THEME_ID -k $API_KEY -o $TMP_DIR -h $FUSIONAUTH_URL
 
 npx fusionauth theme:download $THEME_ID -k $API_KEY -o $TMP_DIR -h $FUSIONAUTH_URL
