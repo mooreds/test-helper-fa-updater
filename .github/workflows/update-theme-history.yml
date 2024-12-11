@@ -9,11 +9,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   # uncomment here and in the checkthemeversion step if you want to run this manually across a lot of versions.
-  #  inputs:
-  #    version:
-  #      required: true
-  #      type: string
-  #      default: ""
+    inputs:
+      version:
+        required: true
+        type: string
+        default: ""
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check if theme is up to date
         id: checkthemeversion
-          #bin/checktheme.sh ${{ inputs.version }}
+          bin/checktheme.sh ${{ inputs.version }}
         run: |
           bin/checktheme.sh 
         shell: bash
