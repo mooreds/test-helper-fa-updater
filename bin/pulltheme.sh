@@ -16,7 +16,7 @@ echo -----1
 cat download.sh
 echo -----
 
-cat<<EOF>download.sh
+cat<<'EOF'>download.sh
 . .env
 
 echo THEME
@@ -34,7 +34,7 @@ echo -----
 npm install
 
 # API key is set in ks/ks.json
-cat << EOF > .env
+cat << 'EOF' > .env
 API_KEY=4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bdEXAMPLE
 THEME_ID=75a068fd-e94b-451a-9aeb-3ddb9a3b5987
 FUSIONAUTH_URL=http://localhost:9011
