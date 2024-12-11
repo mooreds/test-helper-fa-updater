@@ -10,7 +10,7 @@ fi
 
 # pull the theme-history down
 
-git clone https://github.com/FusionAuth/fusionauth-theme-history.git fusionauth-theme-history
+git clone https://github.com/mooreds/test-helper-fa fusionauth-theme-history
 cd fusionauth-theme-history
 git pull origin --tags
 
