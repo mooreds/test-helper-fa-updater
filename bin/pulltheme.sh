@@ -12,6 +12,14 @@ git clone https://github.com/FusionAuth/fusionauth-theme-helper.git fusionauth-t
 # create .env for theme helper
 cd fusionauth-theme-helper
 
+cat<<EOF>download.sh
+. .env
+
+echo npx fusionauth theme:download $THEME_ID -k $API_KEY -o $TMP_DIR -h $FUSIONAUTH_URL
+
+npx fusionauth theme:download $THEME_ID -k $API_KEY -o $TMP_DIR -h $FUSIONAUTH_URL
+EOF
+
 npm install
 
 # API key is set in ks/ks.json
