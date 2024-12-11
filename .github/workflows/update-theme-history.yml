@@ -15,6 +15,12 @@ on:
         type: string
         default: ""
 
+env:
+  #REPO_HTTP: https://github.com/fusionauth/fusionauth-theme-history
+  #REPO_SSH_SUFFIX: FusionAuth/fusionauth-theme-history
+  REPO_HTTP: https://github.com/mooreds/test-helper-fa
+  REPO_SSH_SUFFIX: mooreds/test-helper-fa
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   check_theme_history:
@@ -57,7 +63,7 @@ jobs:
       - name: Pull down needed repos, set up git
         run: |
           echo $LATEST_RELEASED_VERSION
-          git clone --depth 1 https://github.com/fusionauth/fusionauth-theme-history fusionauth-theme-history
+          git clone --depth 1 $REPO_HTTP fusionauth-theme-history
           cd fusionauth-theme-history
           git pull --tags
           git config user.name github-actions
@@ -82,6 +88,6 @@ jobs:
           bin/pulltheme.sh
           bin/pushtheme.sh $LATEST_RELEASED_VERSION
           cd fusionauth-theme-history
-          git push --tags https://${{ secrets.PAT_USER }}:${{ secrets.PAT_FOR_COMMITS }}@github.com/FusionAuth/fusionauth-theme-history main 
+          git push --tags https://${{ secrets.PAT_USER }}:${{ secrets.PAT_FOR_COMMITS }}@github.com/$REPO_SSH_SUFFIX
         shell: bash
 
