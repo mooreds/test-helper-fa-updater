@@ -46,3 +46,4 @@ cat .env
 # download theme
 ./download.sh
 
+ls -l tmp
