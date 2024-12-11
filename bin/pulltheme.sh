@@ -2,7 +2,7 @@
 
 if [ ! -d fusionauth-theme-history ]; then
   # pull down theme history
-  git clone https://github.com/FusionAuth/fusionauth-theme-history.git fusionauth-theme-history
+  git clone https://github.com/mooreds/test-helper-fa.git fusionauth-theme-history
   git pull origin --tags
 fi
 
@@ -21,6 +21,8 @@ THEME_ID=75a068fd-e94b-451a-9aeb-3ddb9a3b5987
 FUSIONAUTH_URL=http://localhost:9011
 TMP_DIR=tmp # a temporary directory; this will be created
 EOF
+
+cat .env
 
 # download theme
 ./download.sh
