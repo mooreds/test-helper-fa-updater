@@ -12,7 +12,7 @@ git clone https://github.com/FusionAuth/fusionauth-theme-helper.git fusionauth-t
 # create .env for theme helper
 cd fusionauth-theme-helper
 
-echo -----
+echo -----1
 cat download.sh
 echo -----
 
@@ -26,6 +26,10 @@ echo npx fusionauth theme:download $THEME_ID -k $API_KEY -o $TMP_DIR -h $FUSIONA
 
 npx fusionauth theme:download $THEME_ID -k $API_KEY -o $TMP_DIR -h $FUSIONAUTH_URL
 EOF
+
+echo -----2
+cat download.sh
+echo -----
 
 npm install
 
