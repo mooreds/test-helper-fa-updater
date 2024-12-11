@@ -81,7 +81,14 @@ jobs:
         run: |
           sleep 60
           curl -vv http://localhost:9011/api/status -H 'Authorization: 4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bdEXAMPLE' 
-          docker ps|grep fusionauth|awk '{print $1}'
+          CONT_ID=`docker ps|grep fusionauth|awk '{print $1}'`
+          SUCC=`docker logs $CONT_ID |grep -c 'HTTP server started successfully'`
+
+          while [ "$SUCC" -ne "3" ]; do  
+            sleep 1
+            echo "sleeping, $SUCC"
+            SUCC=`docker logs $CONT_ID |grep -c 'HTTP server started successfully'`
+          done
           docker logs `docker ps|grep fusionauth|awk '{print $1}'`
         shell: bash
 
