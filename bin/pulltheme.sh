@@ -43,7 +43,12 @@ EOF
 
 cat .env
 
+echo "before"
+
+ls -l 
+echo "dl"
 # download theme
 ./download.sh
 
-ls -l tmp
+echo "after"
+ls -l 
