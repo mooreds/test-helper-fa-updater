@@ -30,9 +30,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check if theme is up to date
         id: checkthemeversion
-          bin/checktheme.sh ${{ github.event.inputs.version }}
         run: |
-          bin/checktheme.sh 
+          bin/checktheme.sh ${{ inputs.version }}
         shell: bash
 
   update_theme_history:
