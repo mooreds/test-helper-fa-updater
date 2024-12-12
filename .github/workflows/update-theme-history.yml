@@ -23,6 +23,18 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # this keeps the workflow from being disabled by inactivity in the repo.
+  # https://stackoverflow.com/questions/67184368/prevent-scheduled-github-actions-from-becoming-disabled has more details
+  # I picked the action that seemed least intrusive
+  workflow-keepalive:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: liskin/gh-workflow-keepalive@v1
+
+
   check_theme_history:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
